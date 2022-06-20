@@ -1,0 +1,14 @@
+{% extends "kantin/layout.html" %}
+
+{% block body %}
+    <h2>Add Item</h2>
+    <form action="{% url 'kantin:create' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <th>
+                {{ form }}
+            </th>
+        </table>
+        <input type="submit">
+    </form>
+{% endblock %}

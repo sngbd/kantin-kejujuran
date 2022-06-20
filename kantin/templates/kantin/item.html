@@ -1,0 +1,27 @@
+{% extends "kantin/layout.html" %}
+
+{% block body %}
+    <h2>{{ data.name }}</h2>
+    {% if message %}
+        <div class="alert alert-{{ msg_type }}">{{ message }}</div>
+    {% endif %}
+    <div class="my-3">
+        {% if data.image %}
+            <img style="max-width: 500px" src="{{ data.image }}">
+        {% endif %}
+    </div>
+    <p>{{ data.description }}</p>
+    <h3>Rp. {{ data.price }}</h3>
+    <div class="my-3">
+        {% if user.is_authenticated %}
+            <form action="{% url 'kantin:item' data.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Buy">
+            </form>
+        {% endif %}
+    </div>
+    <h4>Details</h4>
+    <ul>
+        <li>Created {{ data.datetime }}</li>
+    </ul>
+{% endblock %}

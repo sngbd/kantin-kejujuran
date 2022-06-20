@@ -1,0 +1,9 @@
+[
+  {
+    "model": "kantin.Balance",
+    "pk": 1,
+    "fields": {
+        "balance": 0
+    }
+  }
+]

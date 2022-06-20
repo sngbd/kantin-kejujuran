@@ -1,0 +1,16 @@
+{% extends "kantin/layout.html" %}
+
+{% block body %}
+    <h2>Balance Box</h2>
+    <p>Current Balance: Rp. {{ balance }}</p>
+    <form action="{% url 'kantin:balance' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <th>
+                {{ form }}
+            </th>
+        </table>
+        <input type="submit" class="btn-primary" name="Add" value="Add">
+        <input type="submit" class="btn-primary" name="Withdraw" value="Withdraw">
+    </form>
+{% endblock %}
