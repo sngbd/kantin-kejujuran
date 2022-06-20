@@ -28,3 +28,4 @@ Now you can run the project with this command:
 ```
 python manage.py runserver
 ```
+*Note that this repository is using SQLite3, while the deployed app is using PostgreSQL, for security and testing's sake*
