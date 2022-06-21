@@ -2,7 +2,7 @@
 My submission for Compfest 14 SEA Website Challenge, written in Django.
 
 ## Screenshot
-![Screenshot](img/Screenshot.png)
+![Screenshot](Screenshot.png)
 
 ## Project Summary
 The main page of this website displays the items available on the canteen. Logged in users can add item to the canteen or buy item from the store page. After buying, logged in users can proceed to balance box page to add or withdraw balance from the balance box according to their purchases (if they're honest). Unregistered user can only view the availabe item on the canteen. Student ID in registration and login page is referring to the Student ID of student in SD SEA Sentosa with special properties.
