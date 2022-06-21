@@ -30,18 +30,3 @@ class BalanceBox(forms.Form):
             'class': 'form-control',
             'placeholder': 'Insert balance',
         }))
-    
-
-choices = [
-    ('-', '-----'), 
-    ('DTASC', 'Date Created (Ascending)'), ('DTDSC', 'Date Created (Descending)'),
-    ('NMASC', 'Product Name (Ascending)'), ('NMDSC', 'Product Name (Descending)')
-    ]
-
-
-class SortChoice(forms.Form):
-    sort = forms.ChoiceField(label='', choices=choices, widget=forms.Select(
-        attrs={
-            'onChange':'this.form.submit()',
-            'class': 'form-control',
-        }))

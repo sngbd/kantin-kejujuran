@@ -7,27 +7,25 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
 from .models import User, Item, Balance
-from .forms import CreateForm, BalanceBox, SortChoice
+from .forms import CreateForm, BalanceBox
 
 
 def index(request):
-    a = Item.objects.order_by('-datetime')
-    if request.method == "POST":
-        form = SortChoice(request.POST)
-        if form.is_valid():
-            sort = form.cleaned_data['sort']
-            if (sort == "DTASC"):
-                a = Item.objects.order_by('datetime')
-            elif (sort == "DTDSC"):
-                a = Item.objects.order_by('-datetime')
-            elif (sort == "NMASC"):
-                a = Item.objects.order_by('name')
-            elif (sort == "NMDSC"):
-                a = Item.objects.order_by('-name')
+    item = Item.objects.all()
+    item = item.order_by('-datetime')
+    sort = "date_dsc"
+    if request.GET:
+        sort = request.GET["sort"]
+    if sort == "date_asc":
+        item = item.order_by('datetime')
+    elif sort == "name_asc":
+        item = item.order_by('name')
+    elif sort == "name_dsc":
+        item = item.order_by('-name')
     return render(request, "kantin/index.html", {
-        "items": a,
+        "items": item,
         "title": "Available",
-        "form": SortChoice
+        "sort": sort
     })
 
 

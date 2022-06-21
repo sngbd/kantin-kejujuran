@@ -2,10 +2,14 @@
 
 {% block body %}
     <h2>{{ title }}</h2>
-    <form class="form-inline" action="{% url 'kantin:index' %}" method="POST">
-        {% csrf_token %}
-            <div class="form-group">
-        {{ form }}
+    <form class="form-inline" action="{% url 'kantin:index' %}" method="GET">
+        <div class="form-group">
+            <select name="sort" class="form-control" id="sort" onChange="this.form.submit()">
+              <option value="date_asc">Date Created (Ascending)</option>
+              <option value="date_dsc">Date Created (Descending)</option>
+              <option value="name_asc">Product Name (Ascending)</option>
+              <option value="name_dsc">Product Name (Descending)</option>
+            </select>
         </div>
     </form>
     <div class="container-fluid">
@@ -37,4 +41,8 @@
             {% endfor %}
         </div>
     </div>
+    <script>
+        document.getElementById('sort').value="{{ sort }}"
+    </script>
+
 {% endblock %}
