@@ -4,11 +4,18 @@
     <h2>Add Item</h2>
     <form action="{% url 'kantin:create' %}" method="POST">
         {% csrf_token %}
-        <table>
-            <th>
-                {{ form }}
-            </th>
-        </table>
-        <input type="submit">
+        <div class="form-group">
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            {{ form.price }}
+        </div>
+        <div class="form-group">
+            {{ form.image }}
+        </div>
+        <input class="btn btn-primary" type="submit">
     </form>
 {% endblock %}
